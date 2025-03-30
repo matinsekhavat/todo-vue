@@ -60,6 +60,10 @@ const cancelEdit = () => {
   selectedEditableTodo.value = null;
   editTitle.value = "";
 };
+
+const handleDeleteTodo = (id: number) => {
+  todos.value = todos.value.filter((item) => item.id !== id);
+};
 </script>
 
 <template>
@@ -162,6 +166,7 @@ const cancelEdit = () => {
               >
                 Edit
               </button>
+              <button @click="handleDeleteTodo(list.id)">Delete</button>
             </div>
           </li>
         </ul>
